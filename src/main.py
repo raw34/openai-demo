@@ -78,7 +78,7 @@ if __name__ == "__main__":
     # model_name = "gpt-3.5-turbo"
     model_name = "gpt-4"
     # prompt = "As an intelligent AI model, if you could be any fictional character, who would you choose and why?"
-    prompt = "我提取了一个视频中的字幕，请帮我总结下这个视频的内容。以下是字幕：\n\n"
+    prompt = "我提取了一个视频中的字幕，请帮用中文总结下这个视频的内容。以下是字幕：\n\n"
     content = read_file_content('../data/[English (auto-generated)] LORA + Checkpoint Model Training GUIDE - Get the BEST RESULTS super easy [DownSub.com].txt')
     content_arr = split_text_into_chunks(content, 2048)
     for content in content_arr:
