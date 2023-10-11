@@ -8,18 +8,7 @@ def get_api_key():
     return config['openai']['api_key']
 
 
-def generate_text(model_name, prompt):
-    openai.api_key = get_api_key()
-    response = openai.Completion.create(
-        engine=model_name,
-        prompt=prompt,
-        temperature=0.7,
-        max_tokens=50
-    )
-    return response
-
-
-def generate_text_chat(model_name, messages):
+def chat_completion(model_name, messages):
     openai.api_key = get_api_key()
     response = openai.ChatCompletion.create(
         model=model_name,
@@ -31,15 +20,6 @@ def generate_text_chat(model_name, messages):
 
 
 def read_file_content(file_path):
-    """
-    Read the content of a text file and return it as a string.
-
-    Parameters:
-        file_path (str): The path to the file to be read.
-
-    Returns:
-        str: The content of the file as a string.
-    """
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
@@ -48,7 +28,6 @@ def read_file_content(file_path):
         return f"No file found at {file_path}"
     except IOError:
         return "Error reading the file"
-
 
 
 if __name__ == "__main__":
